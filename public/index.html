@@ -5,18 +5,18 @@
     <title>Homepage | RoomHunter</title>
 
     <!-- CSS Styles  -->
-    <link href="/css/bootstrap.css" rel="stylesheet">
-    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/colors.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./css/font-awesome.min.css" rel="stylesheet">
+    <link href="./css/colors.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 
     <!-- Javascript  -->
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/jquery.placeholder.js"></script>
-
-    <script src="/js/custom.js"></script>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.placeholder.js"></script>
+    <script src="./js/handlebars.js"></script>
+    <script src="./js/custom.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   </head>
@@ -138,7 +138,20 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <ul id="main_info" class="thumbnails">
-
+                            <li class='span4 box-container'>
+                                <div class='holder'>
+                                      <a class='overlay' title='property title' href='#'>
+                                        <span class='more'></span>
+                                        <img alt='image' src='' class='media-object'>
+                                        </a>
+                                        <div class='prop-info'>
+                                          <h3 class='prop-title'>{{title}}</h3>
+                                          <ul class='more-info clearfix'>
+                                              <li class='info-label clearfix'><span class='pull-left'>Price:</span> <span class='qty pull-right'>{{body}}</span></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                              </li>
                         </ul>
                     </div><!-- .item -->
 
@@ -165,8 +178,18 @@
             </div>
         </div>
     </footer>
-
+    <div id="test"></div> 
+    <script id="entry-template" type="text/x-handlebars-template">
+      <ul>
+      {{#each obj }}
+        {{#with this.images}}
+            <p>{{this.[0]}}</p>
+            <img src="{{{this.[0]}}}" alt="">
+        {{/with}}
+      {{/each}}
+    </ul>
+    </script>
     <!-- end footer -->
-    <script src="/roomControllers.js"></script>
+    <script src="./roomControllers.js"></script>
   </body>
 </html>

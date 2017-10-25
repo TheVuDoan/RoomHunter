@@ -1,7 +1,8 @@
 var rooms = [];
 var numberOfRooms;
 var currentRoom = 0;
-
+    var source = document.getElementById('entry-template').innerHTML;
+    var template = Handlebars.compile(source);
 var getRoomsOnPage = (page, key) =>{
   $.ajax({
     type  : 'get',
@@ -13,7 +14,7 @@ var getRoomsOnPage = (page, key) =>{
     // $("#room_img").append(`<img alt="image" src="${rooms[currentRoom].images[0]}" class="media-object">`);
     // $("#room_name").append(rooms[currentRoom].name);
     for (i=0;i<rooms.length;i++) {
-      $("#main_info").append("<li class='span4 box-container'>" +
+    /*  $("#main_info").append("<li class='span4 box-container'>" +
         "<div class='holder'>" +
               "<a class='overlay' title='property title' href='#'>" +
                 "<span class='more'></span>" +
@@ -26,8 +27,12 @@ var getRoomsOnPage = (page, key) =>{
                   "</ul>" +
               "</div>" +
           "</div>" +
-      "</li>");
+      "</li>");*/
+      console.log(rooms[i].name);
     }
+    var test = template({obj: rooms});
+    document.getElementById('test').innerHTML = test;
+
   }).fail((err) => {
     console.error(err);
   });
