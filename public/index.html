@@ -122,40 +122,27 @@
     <div id="latest-properties">
       <div class="container">
         <div class="row">
-          <div class="span12">
+          <div class="span3">
             <h2 class="secion-title">Danh sách các phòng</h2>
+            <br>
+          </div>
+          <div class="carousel-navigation">
+            <a class="span1 serif italic pull-left" id="ascend" onclick="getSortedRoom(1,'undefined',1)">Giá tăng</a>
+            <a class="span1 serif italic pull-left" id="decend" onclick="getSortedRoom(1,'undefined',-1)">Giá giảm</a>
           </div>
         </div>
 
         <!-- Begin Carousel -->
         <div class="row">
             <div id="realto-carousel" class="carousel slide span12">
-              <!-- <div class="carousel-navigation pull-right">
-                <a class="serif italic pull-left view-all-carousel" href="#">View all</a>
-                <a class="left carousel-control pull-left" href="#realto-carousel" data-slide="prev">‹</a>
-                <a class="right carousel-control pull-right" href="#realto-carousel" data-slide="next">›</a>
-              </div> -->
-                <div class="carousel-inner">
-                    <div class="item active">
-                        <ul id="main_info" class="thumbnails">
-                            <li class='span4 box-container'>
-                                <div class='holder'>
-                                      <a class='overlay' title='property title' href='#'>
-                                        <span class='more'></span>
-                                        <img alt='image' src='' class='media-object'>
-                                        </a>
-                                        <div class='prop-info'>
-                                          <h3 class='prop-title'>{{title}}</h3>
-                                          <ul class='more-info clearfix'>
-                                              <li class='info-label clearfix'><span class='pull-left'>Price:</span> <span class='qty pull-right'>{{body}}</span></li>
-                                          </ul>
-                                      </div>
-                                  </div>
-                              </li>
-                        </ul>
-                    </div><!-- .item -->
+              <div class="carousel-inner">
+                  <div class="item active">
+                      <ul id="main_info" class="thumbnails">
 
-                </div><!-- .carousel-inner -->
+                      </ul>
+                  </div><!-- .item -->
+
+              </div><!-- .carousel-inner -->
             </div>
         </div><!--End Carousel-->
 
@@ -174,18 +161,29 @@
             </div>
         </div>
     </footer>
-    <div id="test"></div> 
-    <script id="entry-template" type="text/x-handlebars-template">
-      <ul>
-      {{#each obj }}
-        {{#with this.images}}
-            <p>{{this.[0]}}</p>
-            <img src="{{{this.[0]}}}" alt="">
-        {{/with}}
-      {{/each}}
-    </ul>
-    </script>
     <!-- end footer -->
+    <script id="entry-template" type="text/x-handlebars-template">
+    {{#each obj }}
+      <li class='span4 box-container'>
+          <div class='holder'>
+
+                <a class='overlay' title='property title' href='/rooms/{{id}}'>
+                  {{#with this.images}}
+                  <span class='more'></span>
+                  <img alt='image' src='{{{this.[2]}}}' class='media-object'>
+                  {{/with}}
+                </a>
+
+                <div class='prop-info'>
+                    <h3 class='prop-title'>{{name}}</h3>
+                    <ul class='more-info clearfix'>
+                        <li class='info-label clearfix'><span class='pull-left'>Price: </span><span class='qty pull-right'>{{price}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+      {{/each}}
+    </script>
     <script src="./roomControllers.js"></script>
   </body>
 </html>

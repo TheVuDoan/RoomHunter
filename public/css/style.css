@@ -20,6 +20,7 @@ a:hover {
 	color: #7DC328;
 	text-decoration: none;
 	outline: 0;
+	cursor: pointer;
 }
 h1 {
 	font-size: 30px;
@@ -265,6 +266,7 @@ a.brand {
 .box-container {
 	background: #fff;
 	position: relative;
+	height: 400px;
 	margin-bottom: 30px;
 	border-bottom: 2px solid #EAEAEA;
 }
