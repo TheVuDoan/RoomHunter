@@ -3820,6 +3820,10 @@ a.thumbnail:hover {
   height: 250px;
   width: 100%;
 }
+.media-object2 {
+  display: block;
+  width: 100%;
+}
 .media-heading {
   margin: 0 0 5px;
 }

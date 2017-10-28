@@ -5,18 +5,18 @@
     <title>Homepage | RoomHunter</title>
 
     <!-- CSS Styles  -->
-    <link href="./css/bootstrap.css" rel="stylesheet">
-    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="./css/font-awesome.min.css" rel="stylesheet">
-    <link href="./css/colors.css" rel="stylesheet">
-    <link href="./css/style.css" rel="stylesheet">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/colors.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
 
     <!-- Javascript  -->
-    <script src="./js/jquery.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.placeholder.js"></script>
-    <script src="./js/handlebars.js"></script>
-    <script src="./js/custom.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.placeholder.js"></script>
+    <script src="/js/handlebars.js"></script>
+    <script src="/js/custom.js"></script>
 
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   </head>
@@ -167,10 +167,10 @@
       <li class='span4 box-container'>
           <div class='holder'>
 
-                <a class='overlay' title='property title' href='/rooms/{{id}}'>
+                <a class='overlay' title='property title' href="/rooms?{{_id}}">
                   {{#with this.images}}
                   <span class='more'></span>
-                  <img alt='image' src='{{{this.[2]}}}' class='media-object'>
+                  <img alt='image' src='{{{this.[0]}}}' class='media-object'>
                   {{/with}}
                 </a>
 
@@ -184,6 +184,6 @@
         </li>
       {{/each}}
     </script>
-    <script src="./roomControllers.js"></script>
+    <script src="/roomControllers.js"></script>
   </body>
 </html>

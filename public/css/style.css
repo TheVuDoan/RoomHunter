@@ -270,6 +270,12 @@ a.brand {
 	margin-bottom: 30px;
 	border-bottom: 2px solid #EAEAEA;
 }
+.box-container2 {
+	background: #fff;
+	position: relative;
+	margin-bottom: 30px;
+	border-bottom: 2px solid #EAEAEA;
+}
 .prop-info .prop-title {
 	font-size: 18px;
     font-weight: 200;

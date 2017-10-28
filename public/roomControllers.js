@@ -1,6 +1,5 @@
 var rooms = [];
 var numberOfRooms;
-var currentRoom = 0;
 
 var source = document.getElementById('entry-template').innerHTML;
 var template = Handlebars.compile(source);
@@ -10,6 +9,7 @@ var getRoomsOnPage = (page, key) => {
     url   : 'https://murmuring-anchorage-78399.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + key
   }).then((data) => {
     rooms = data.result;
+    console.log(rooms);
     var test = template({obj: rooms});
     document.getElementById('main_info').innerHTML = test;
   }).fail((err) => {

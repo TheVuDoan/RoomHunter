@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>RoomInfo | RoomHunter</title>
+
+        <!-- CSS Styles  -->
+        <link href="/css/bootstrap.css" rel="stylesheet">
+        <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+        <link href="/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/css/colors.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
+
+        <!-- Javascript  -->
+        <script src="/js/jquery.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.placeholder.js"></script>
+
+        <script src="js/custom.js"></script>
+
+    </head>
+    <body>
+        <!-- begin header -->
+        <header>
+            <div class="navbar navbar-inverse navbar-static-top navbar-right">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="nav-collapse collapse">
+                            <ul class="nav">
+                                <li class="active"><a href="index.html"><i class="icon-home"></i></a></li>
+                                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tìm nhà<i class="icon-caret-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                      <!--  Danh sách các quận  -->
+                                      <li><a href="#" title="Đống Đa">Đống Đa</a></li>
+                                      <li><a href="#" title="Hoàn Kiếm">Hoàn Kiếm</a></li>
+                                      <li><a href="#" title="Ba Đình">Ba Đình</a></li>
+                                      <li><a href="#" title="Hai Bà Trưng">Hai Bà Trưng</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" title="Post">Đăng bài</a></li>
+                                <li><a href="#" title="Contact us">Về chúng tôi</a></li>
+                                <li><a href="#" title="Sign In">Đăng nhập</a></li>
+                            </ul>
+                        </div>
+                        <!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+            <div id="logo-container">
+                <div class="container">
+                    <div class="row">
+                        <div class="span8">
+                            <a class="brand"><span>RoomHunter</span></a>
+                            <span class="tag-line hidden-phone">Tìm phòng nhanh như cách người yêu bỏ bạn</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #logo-container -->
+        </header>
+        <!-- end header -->
+
+        <div class="container page-content">
+            <div class="row">
+                <div class="span8">
+                    <div class="box-container2">
+                        <div id="images_slide">
+
+                        </div>
+
+                        <div id="adv-custom-pager"></div>
+                        <div class="clearfix">
+                            <div class="clearfix padding30">
+                                <h2 id="propName" class="prop-title pull-left margin0"></h2>
+                                <span id="propPrice" class="prop-price pull-right serif italic"></span>
+                            </div>
+                            <div class="clearfix padding030 row-fluid">
+                                <ul class="more-info pull-left span6">
+                                    <li class="info-label clearfix"><span class="pull-left">Diện tích:</span>
+                                        <span id="propArea" class="qty pull-right"></span></li>
+                                    <li class="info-label clearfix"><span class="pull-left">Người đăng:</span>
+                                        <span class="qty pull-right"></span></li>
+                                </ul>
+                                <ul class="more-info pull-right span6">
+                                    <li class="info-label clearfix"><span class="pull-left">Số điện thoại:</span>
+                                        <span id="propPhone" class="qty pull-right">2010</span></li>
+                                    <li class="info-label clearfix"><span class="pull-left">Ngày đăng:</span>
+                                        <span class="qty pull-right"></span></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix padding030 row-fluid">
+                                <ul class="more-info pull-left span12">
+                                    <li class="info-label clearfix"><span class="pull-left">Địa chỉ:</span>
+                                        <span id="propAdr" class="qty pull-right"></span></li>
+                                </ul>
+                            </div>
+                            <div class="clearfix padding30">
+                                <h3>Mô tả</h3>
+                                <p id="propDes"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- .span8 -->
+                <div class="span4">
+                    <div class="search-form widget">
+                        <p>Tìm tổ ấm</p>
+                        <form action="#" class="row-fluid" method="post">
+                            <select class="span12 select" name="type">
+
+                            </select>
+                            <select class="span12 select" name="type">
+
+                            </select>
+                            <select class="span6 select pull-left" name="beds">
+
+                            </select>
+                            <select class="span6 select pull-right" name="baths">
+
+                            </select>
+                            <select class="span12 select clearfix" name="status">
+
+                            </select>
+                            <select class="span6 select pull-left" name="price-from">
+
+                            </select>
+                            <select class="span6 select pull-right" name="price-to">
+
+                            </select>
+                            <div class="clearfix">
+                                <button class="btn pull-right span6 btn-realto-form btn-large" type="submit">Tìm kiếm</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- .search-form -->
+                </div>
+                <!-- .span4 -->
+            </div>
+            <!-- .row -->
+        </div>
+        <!-- .container -->
+
+
+        <!-- begin footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                        <div class="footer-widget">
+                            <h2 class="brand widget-title">RoomHunter</h2>
+                            <p class="footer-tag-line">Tìm phòng nhanh như cách người yêu bỏ bạn</p>
+                        </div>
+                        <!-- .footer-company-info -->
+                </div>
+            </div>
+        </footer>
+        <!-- end footer -->
+        <script src="/detailController.js"></script>
+    </body>
+</html>
