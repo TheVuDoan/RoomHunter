@@ -33,13 +33,12 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="index.html"><i class="icon-home"></i></a></li>
-                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tìm nhà<i class="icon-caret-down"></i></a>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Tìm phòng<i class="icon-caret-down"></i></a>
                                 <ul class="dropdown-menu">
-                                  <!--  Danh sách các quận  -->
-                                  <li><a href="#" title="Đống Đa">Đống Đa</a></li>
-                                  <li><a href="#" title="Hoàn Kiếm">Hoàn Kiếm</a></li>
-                                  <li><a href="#" title="Ba Đình">Ba Đình</a></li>
-                                  <li><a href="#" title="Hai Bà Trưng">Hai Bà Trưng</a></li>
+                                  <!--  Danh sách các khu du lịch  -->
+                                  <li><a onclick="getRoomsOnPage(1,'Co To')" title="Cô Tô">Cô Tô</a></li>
+                                  <li><a onclick="getRoomsOnPage(1,'Đà Lạt')" title="Đà Lạt">Đà Lạt</a></li>
+                                  <li><a onclick="getRoomsOnPage(1,'Hội An')" title="Hội An">Hội An</a></li>
                                 </ul>
                             </li>
                             <li><a href="#" title="Post">Đăng bài</a></li>
@@ -56,7 +55,7 @@
                 <div class="row">
                     <div class="span8">
                         <a class="brand"><span>RoomHunter</span></a>
-                        <span class="tag-line hidden-phone">Tìm phòng nhanh như cách người yêu bỏ bạn</span>
+                        <span class="tag-line hidden-phone italic">"Tìm phòng nhanh như cách người yêu bỏ bạn"</span>
                     </div>
                 </div>
             </div>
@@ -75,9 +74,9 @@
                             <div class="row">
                                 <div class="span8 hidden-phone">
                                     <h2 class="head-title">Welcome to RoomHunter</h2>
-                                    <p class="head-message"><strong>Bạn đang đi du lịch và cần tìm phòng nhà nghỉ? Đã có RoomHunter!</strong><br />
+                                    <p class="head-message"><strong>Bạn đang đi du lịch và cần tìm nhà nghỉ? Đã có RoomHunter!</strong><br />
                                     Đây là trang web giúp bạn dễ dàng tìm nhà nghỉ ở bất cứ khu du lịch nào.</p>
-                                    <a class="btn btn-large btn-realto span3 header-cta" href="#" title="Start">Bắt đầu thôi!</a>
+                                    <a class="btn btn-large btn-realto span3 header-cta" href="#latest-properties" title="Start">Bắt đầu thôi!</a>
                                 </div>
                                 <div class="span4">
                                     <div class="search-form">
@@ -178,6 +177,7 @@
                     <h3 class='prop-title'>{{name}}</h3>
                     <ul class='more-info clearfix'>
                         <li class='info-label clearfix'><span class='pull-left'>Price: </span><span class='qty pull-right'>{{price}}</span></li>
+                        <li class='info-label clearfix'><span class='pull-left'>Khu du lịch: </span><span class='qty pull-right'>{{touristPlaces}}</span></li>
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,8 @@
 var rooms = [];
 var numberOfRooms;
+var query = window.location.search.substring(1);
+var re = query==='' ? '' : /w/gi;
+var newQuery = query.replace(re, ' ');
 
 var source = document.getElementById('entry-template').innerHTML;
 var template = Handlebars.compile(source);
@@ -31,4 +34,5 @@ var getSortedRoom = (page, key, sort) => {
   });
 }
 
-getRoomsOnPage(1);
+query === '' ? getRoomsOnPage(1,'Đà Lạt Cô Tô Hội An') : getRoomsOnPage(1,newQuery);
+console.log(newQuery);
