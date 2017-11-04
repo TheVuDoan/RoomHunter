@@ -158,6 +158,7 @@ header {
 }
 
 #logo-container {
+	margin-top: 40px;
 	padding: 25px 0 22px;
 }
 a.brand {
@@ -425,7 +426,6 @@ a.overlay:hover .more {
 	background: #fff; /* ie8 */
 	background: rgba(255,255,255,0.85);
 	border: 1px solid #fff;
-	visibility: hidden;
 }
 .search-form > p {
 	font-size: 18px;

@@ -7,7 +7,18 @@ var getDetailRoom = (id) => {
       url   : 'https://murmuring-anchorage-78399.herokuapp.com/api/room/' + id
     }).then((data) => {
       console.log(data);
-      $("#images_slide").html("<img alt='image' src='"+ data.images[0] + "' class='media-object2'>")
+      for (let i = 0;i<data.images.length;i++) {
+        $("#images_slide").append("<div><img alt='image' src='"+ data.images[i] + "' class='media-object2'></div>")
+      }
+      $('#images_slide').removeClass("slick-initialized slick-slider");
+      $('#images_slide').slick({
+        arrows: false,
+        dots: false,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+      });
       $("#propName").html(data.name);
       $("#propPrice").html(data.price+'VNĐ');
       $("#propArea").html(data.area + 'm2');
