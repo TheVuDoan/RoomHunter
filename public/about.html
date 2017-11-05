@@ -45,13 +45,16 @@
                                 <li class="dropdown active"><a href="/aboutus" title="Contact us">Về chúng tôi</a></li>
                                 <div class="span6 pull-right">
                                   <button class="btn btn-realto-form login-box" href="#" title="Sign In">Đăng nhập</button>
+                                  <span class="btn btn-realto-form login-box2" href="#" title="Sign out" onclick="signOut()">Đăng xuất</span>
                                 </div>
                             </ul>
                         </div>
                         <!--/.nav-collapse -->
+
                     </div>
                 </div>
             </div>
+
             <div id="logo-container">
                 <div class="container">
                     <div class="row">
@@ -59,6 +62,10 @@
                             <a class="brand"><span>RoomHunter</span></a>
                             <span class="tag-line hidden-phone italic">"Tìm phòng nhanh như cách người yêu bỏ bạn"</span>
                         </div>
+                        <div class="span4">
+                            <div class="login-name"></div>
+                        </div>
+                        <!-- <button id="test">Test</button> -->
                     </div>
                 </div>
             </div>
@@ -89,7 +96,7 @@
                             <div class="agent row">
                                 <a class="span2 overlay" href="#" title="agent name">
                                     <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-02.jpg">
+                                    <img alt="image" class="media-object" src="">
                                 </a>
                                 <div class="span6">
                                     <div class="agent-content">
@@ -104,7 +111,7 @@
                             <div class="agent row">
                                 <a class="span2 overlay" href="#" title="agent name">
                                     <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-03.jpg">
+                                    <img alt="image" class="media-object" src="">
                                 </a>
                                 <div class="span6">
                                     <div class="agent-content">
@@ -119,7 +126,7 @@
                             <div class="agent row">
                                 <a class="span2 overlay" href="#" title="agent name">
                                     <span class="more"></span>
-                                    <img alt="image" class="media-object" src="images/agent-04.jpg">
+                                    <img alt="image" class="media-object" src="">
                                 </a>
                                 <div class="span6">
                                     <div class="agent-content">
@@ -186,5 +193,43 @@
             </div>
         </footer>
         <!-- end footer -->
+        <div class="login">
+          <div class="login-triangle"></div>
+          <span id="signin" class="login-header">Đăng nhập</span>
+          <span id="signup" class="login-header">Đăng kí</span>
+
+          <div id="choice1" class="login-container">
+            <p><input type="text" name="username" placeholder="Tên Đăng Nhập"></p>
+            <p><input type="password" name="password" placeholder="Mật khẩu"></p>
+            <p><button class="btn btn-realto-form sign-btn" onclick="signIn()">Đăng nhập</button></p>
+          </div>
+          <div id="choice2" class="login-container">
+            <p><input type="text" name="username" placeholder="Tên Đăng Nhập"></p>
+            <p><input type="password" name="password" placeholder="Mật khẩu"></p>
+            <p><button class="btn btn-realto-form sign-btn" onclick="sendUserData()">Đăng kí</button></p>
+          </div>
+        </div>
+        <script type="text/javascript">
+          $("#choice2").css('display','none');
+          $(".login-box").click(function(e) {
+            $(".login").css('display','block');
+            e.stopPropagation();
+            $('.login#nomore').toggle();
+            $("body > *").not("body .login").click(function() {
+                $(".login").hide();
+            });
+          });
+          $("#signin").click(function() {
+            $("#choice1").css('display','block');
+            $("#choice2").css('display','none');
+          });
+          $("#signup").click(function() {
+            $("#choice1").css('display','none');
+            $("#choice2").css('display','block');
+          });
+        </script>
+        <script src="/login.js">
+
+        </script>
     </body>
 </html>

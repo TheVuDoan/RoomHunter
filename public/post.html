@@ -18,8 +18,10 @@
 
         <script src="js/custom.js"></script>
 
+
     </head>
     <body>
+        <!-- <script src="/login.js"></script> -->
         <!-- begin header -->
         <header>
             <div class="navbar navbar-inverse navbar-fixed-top">
@@ -70,7 +72,79 @@
             <div class="row">
                 <div class="span8">
                     <div class="row">
-                      <div class="span8 box-container2">
+                      <div class="box-container2">
+                        <div class="clearfix padding20">
+                          <h2>Thông tin căn hộ</h2>
+                        </div>
+                        <form class="row-fluid" action="" enctype="multipart/form-data" id="form-post">
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Tên nhà nghỉ:</span>
+                                      <input class="qty input-box pull-right" name='name'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Số nhà:</span>
+                                      <input class="qty input-box pull-right" name='address'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Đường phố:</span>
+                                      <input class="qty input-box pull-right" name='street'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Tên tỉnh/thành phố:</span>
+                                      <input class="qty input-box pull-right" name='city'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Gần khu du lịch:</span>
+                                      <input class="qty input-box pull-right" name='touristPlaces'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Diện tích:</span>
+                                      <input class="qty input-box pull-right" name='area'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Số điện thoại:</span>
+                                      <input class="qty input-box pull-right" name='phoneNumber'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Giá:</span>
+                                      <input class="qty input-box pull-right" name='price'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Mô tả:</span>
+                                      <input class="qty input-box pull-right" name='description'></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid" style="display:none">
+                              <ul class="more-info pull-left span12">
+                                      <input class="qty input-box pull-right" name='images' id="images"></li>
+                              </ul>
+                          </div>
+                          <div class="clearfix padding030 row-fluid">
+                              <ul class="more-info pull-left span12">
+                                  <li class="info-label clearfix"><span class="pull-left">Tài ảnh lên</span>
+                                    <input class="qty input-box pull-right" type="file" name="file" multiple="false" accept="image/*" onchange="upFile()"></li>
+                              </ul>
+                          </div>
+                        </form>
+                        <!-- <div onclick="post()">Đăng bài</div> -->
+                        <button class="btn btn-realto-form post-btn" onclick="post()">Đăng bài</button>
                       </div>
                     </div>
                     <!-- .row -->
@@ -128,5 +202,7 @@
             </div>
         </footer>
         <!-- end footer -->
+        <script src="postController.js"></script>
     </body>
+
 </html>

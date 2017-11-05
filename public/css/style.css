@@ -419,6 +419,7 @@ a.overlay:hover .more {
 }
 .search-form {
 	padding: 30px 30px 10px;
+	margin-left: 23px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -876,13 +877,157 @@ h2.post-title {
 	}
 }
 
+.sign-btn {
+	width : 80px;
+	margin-left: 190px;
+}
+
+.post-btn {
+	width : 80px;
+	margin-left: 600px;
+	margin-bottom: 30px;
+}
+
 .login-box {
-	margin-left: 650px;
-	margin-right: 0px;
+	display: inline-block;
 	width: 100px;
-	height: 30px;
+	margin-top: 10px;
+	margin-left: 660px;
+	margin-right: 0px;
 	line-height: 10px;
 }
+
+.login-box2 {
+	display: none;
+	width: 100px;
+	margin-top: 10px;
+	margin-left: 660px;
+	margin-right: 0px;
+	line-height: 10px;
+}
+
+.login-name {
+	display : none;
+	margin-left: 250px;
+	width: 200px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+/*body {
+  background: #456;
+  font-family: 'Open Sans', sans-serif;
+}*/
+
+.login {
+  width: 300px;
+	height: 250px;
+  margin: 16px auto;
+  font-size: 16px;
+	display: none;
+	position: fixed;
+	top: 13px;
+	right: 75px;
+	z-index: 10;
+}
+
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: 40px;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #5FB000;
+}
+
+.login-header {
+  background: #5FB000;
+	height: 40px;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+	line-height: 40px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.login-container {
+  background: #ebebeb;
+  padding: 10px;
+}
+
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  margin-top: 15px;
+}
+
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 13px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+
+.login input[type="submit"] {
+  background: #5FB000;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+	height: 10px;
+	line-height: 1px;
+}
+
+.login input[type="submit"]:hover {
+  background: #7DC328;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+.input-box {
+	width: 300px;
+	margin-right: 200px;
+}
+
+.login span {
+	display: inline-block;
+	width: 49%;
+	height: 40px;
+	margin-left: 0;
+	margin-right: 0;
+}
+.login span:hover {
+	cursor: pointer;
+}
+
 /* ==========================================================
 ! Landscape phones and down
 ========================================================== */

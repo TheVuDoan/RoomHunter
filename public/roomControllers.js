@@ -18,7 +18,7 @@ var getRoomsOnPage = (page, key) => {
   isLoading = true;
   $.ajax({
     type  : 'get',
-    url   : 'https://murmuring-anchorage-78399.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + key
+    url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + key
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
@@ -37,7 +37,7 @@ var getSortedRoom = (page, key, sort) => {
   isLoading = true;
   $.ajax({
     type  : 'get',
-    url   : 'https://murmuring-anchorage-78399.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + key + "&sort=" + sort
+    url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + key + "&sort=" + sort
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
@@ -55,7 +55,7 @@ var getSortedRoom = (page, key, sort) => {
   });
 }
 
-query === '' ? getRoomsOnPage(1,'Đà Lạt Cô Tô Hội An') : getRoomsOnPage(1,newQuery);
+query === '' ? getRoomsOnPage(1,'undefined') : getRoomsOnPage(1,newQuery);
 
 $("#ascend").click(function(){
   isAscend = true;
