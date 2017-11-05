@@ -9,6 +9,9 @@ app.get('/rooms',(req, res) => {
 app.get('/aboutus',(req, res) => {
   res.sendFile(__dirname + '/public/about.html');
 });
+app.get('/post',(req, res) => {
+  res.sendFile(__dirname + '/public/post.html');
+});
 app.use(express.static(__dirname + '/public'));
 
 const port = process.env.PORT || 1010;

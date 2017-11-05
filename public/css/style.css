@@ -875,6 +875,14 @@ h2.post-title {
 		margin-bottom: 1px;
 	}
 }
+
+.login-box {
+	margin-left: 650px;
+	margin-right: 0px;
+	width: 100px;
+	height: 30px;
+	line-height: 10px;
+}
 /* ==========================================================
 ! Landscape phones and down
 ========================================================== */
