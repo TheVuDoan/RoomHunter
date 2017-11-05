@@ -42,12 +42,13 @@
                                   <li><a href="/?HoiwAn" title="Hội An">Hội An</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/post" title="Post">Đăng bài</a></li>
+                            <li><a id="post" href="" title="Post">Đăng bài</a></li>
                             <li><a href="/aboutus" title="Contact us">Về chúng tôi</a></li>
                             <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
                             </fb:login-button> -->
                             <div class="span6 pull-right">
                               <button class="btn btn-realto-form login-box" href="#" title="Sign In">Đăng nhập</button>
+                              <span class="btn btn-realto-form login-box2" href="#" title="Sign out" onclick="signOut()">Đăng xuất</span>
                             </div>
                         </ul>
                     </div>
@@ -61,6 +62,9 @@
                     <div class="span8">
                         <a class="brand"><span>RoomHunter</span></a>
                         <span class="tag-line hidden-phone italic">"Tìm phòng nhanh như cách người yêu bỏ bạn"</span>
+                    </div>
+                    <div class="span4">
+                        <div class="login-name"></div>
                     </div>
                 </div>
             </div>
@@ -86,25 +90,17 @@
                                 <div class="span4">
                                     <div class="search-form">
                                         <p>Tìm tổ ấm</p>
-                                        <form action="#" class="row-fluid" method="post">
-                                            <select class="span12 select" name="type">
-                                            </select>
-                                            <select class="span12 select" name="type">
-                                            </select>
-                                            <!-- <select class="span6 select pull-left" name="beds">
-                                            </select>
-                                            <select class="span6 select pull-right" name="baths">
-                                            </select> -->
-                                            <select class="span12 select clearfix" name="status">
-                                            </select>
-                                            <select class="span6 select pull-left" name="price-from">
-                                            </select>
-                                            <select class="span6 select pull-right" name="price-to">
-                                            </select>
+                                        <div id="search" action="#" class="row-fluid">
+                                            <input class="span12 select" name="touristPlaces" placeholder=" Địa điểm du lịch">
+                                            <input class="span12 select clearfix" name="city" placeholder=" Thành phố">
+                                            <input class="span6 select pull-left" name="sprice" placeholder=" Giá Từ">
+                                            <input class="span6 select pull-right" name="eprice" placeholder=" Giá Đến">
                                             <div class="clearfix">
-                                                <button class="btn pull-right span6 btn-realto-form btn-large" type="submit">Tìm kiếm</button>
+                                                <button id="search-btn" class="btn pull-right span6 btn-realto-form btn-large" type="submit">Tìm kiếm</button>
                                             </div>
-                                        </form>
+                                            <select class="span12 select" name="type" style="visibility:hidden">
+                                            </select>
+                                        </div>
                                     </div>
                                     <!-- .search-form -->
                                 </div>
@@ -166,6 +162,42 @@
         </div>
     </footer>
     <!-- end footer -->
+    <div class="login">
+      <div class="login-triangle"></div>
+      <span id="signin" class="login-header">Đăng nhập</span>
+      <span id="signup" class="login-header">Đăng kí</span>
+
+      <div id="choice1" class="login-container">
+        <p><input type="text" name="username" placeholder="Tên Đăng Nhập"></p>
+        <p><input type="password" name="password" placeholder="Mật khẩu"></p>
+        <p><button class="btn btn-realto-form sign-btn" onclick="signIn()">Đăng nhập</button></p>
+      </div>
+      <div id="choice2" class="login-container">
+        <p><input type="text" name="username" placeholder="Tên Đăng Nhập"></p>
+        <p><input type="password" name="password" placeholder="Mật khẩu"></p>
+        <p><button class="btn btn-realto-form sign-btn" onclick="sendUserData()">Đăng kí</button></p>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $("#choice2").css('display','none');
+      $(".login-box").click(function(e) {
+        $(".login").css('display','block');
+        e.stopPropagation();
+        $('.login#nomore').toggle();
+        $("body > *").not("body .login").click(function() {
+            $(".login").hide();
+        });
+      });
+      $("#signin").click(function() {
+        $("#choice1").css('display','block');
+        $("#choice2").css('display','none');
+      });
+      $("#signup").click(function() {
+        $("#choice1").css('display','none');
+        $("#choice2").css('display','block');
+      });
+    </script>
+    <script src="/login.js"></script>
     <script id="entry-template" type="text/x-handlebars-template">
     {{#each obj }}
       <li class='span4 box-container'>
@@ -188,6 +220,15 @@
             </div>
         </li>
       {{/each}}
+    </script>
+    <script>
+      $("#post").click(function() {
+        if (localStorage.username == undefined) {
+          alert("Bạn phải đăng nhập để dùng chức năng");
+        } else {
+          $("#post").attr("href","/post");
+        }
+      })
     </script>
     <script src="/roomControllers.js"></script>
   </body>

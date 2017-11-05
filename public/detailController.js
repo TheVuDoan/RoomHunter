@@ -67,7 +67,7 @@ var getRoomsOnPage2 = (page, key) => {
   }).then((data) => {
     rooms = data.result;
     console.log(rooms);
-    if (rooms[1]._id === query) cur2 = 23;
+    if (rooms[2]._id === query) cur2 = 3;
     else cur2 = 2;
     $("#secondLink").attr("href",`/rooms?${rooms[cur2]._id}`);
     $("#secondImage").attr("src",rooms[cur2].images[0]);

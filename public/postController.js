@@ -6,10 +6,16 @@ $.ajax({
     data: formData,
     type: 'POST',
     contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
-    processData: false, // NEEDED, DON'T OMIT THIS
+    processData: false, // NEEDED, DON'T OMIT THIS,
+    headers: {'Authorization': 'access_token ' + localStorage.access_token}
 }).then((data) => {
   console.log(data);
   $('#images').val("https://agile-everglades-67445.herokuapp.com/" + data.result);
+  if (data.code == 1) {
+    $(".post-btn").removeAttr("disabled");
+  } else {
+    alert("Đã có lỗi upload ảnh. Xin hãy thử lại!");
+  }
 }).fail((err) => {
   console.error(err);
 });
@@ -31,9 +37,15 @@ function post(){
   $.ajax({
       url: 'https://agile-everglades-67445.herokuapp.com/api/rooms',
       data: room,
-      type: 'POST'
+      type: 'POST',
+      headers: {'Authorization': 'access_token ' + localStorage.access_token}
   }).then((data) => {
     console.log(data);
+    if (data.code == 1) {
+      alert("Đã đăng thành công. Xin hãy chờ duyệt!");
+    } else {
+      alert("Đã có lỗi xảy ra. Xin hay thử lại!");
+    }
   }).fail((err) => {
     console.error(err);
   });

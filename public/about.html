@@ -41,7 +41,7 @@
                                       <li><a href="/?HoiwAn" title="Hội An">Hội An</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/post" title="Post">Đăng bài</a></li>
+                                <li><a id="post" href="/" title="Post">Đăng bài</a></li>
                                 <li class="dropdown active"><a href="/aboutus" title="Contact us">Về chúng tôi</a></li>
                                 <div class="span6 pull-right">
                                   <button class="btn btn-realto-form login-box" href="#" title="Sign In">Đăng nhập</button>
@@ -141,39 +141,6 @@
                     <!-- .row -->
                 </div>
                 <!-- .span8 -->
-                <div class="span4">
-                    <div class="search-form widget">
-                        <p>Tìm tổ ấm</p>
-                        <form action="#" class="row-fluid" method="post">
-                            <select class="span12 select" name="type">
-
-                            </select>
-                            <select class="span12 select" name="type">
-
-                            </select>
-                            <select class="span6 select pull-left" name="beds">
-
-                            </select>
-                            <select class="span6 select pull-right" name="baths">
-
-                            </select>
-                            <select class="span12 select clearfix" name="status">
-
-                            </select>
-                            <select class="span6 select pull-left" name="price-from">
-
-                            </select>
-                            <select class="span6 select pull-right" name="price-to">
-
-                            </select>
-                            <div class="clearfix">
-                                <button class="btn pull-right span6 btn-realto-form btn-large" type="submit">Tìm kiếm</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- .search-form -->
-                </div>
-                <!-- .span4 -->
             </div>
             <!-- .row -->
         </div>
@@ -227,6 +194,15 @@
             $("#choice1").css('display','none');
             $("#choice2").css('display','block');
           });
+        </script>
+        <script>
+          $("#post").click(function() {
+            if (localStorage.username == undefined) {
+              alert("Bạn phải đăng nhập để dùng chức năng");
+            } else {
+              $("#post").attr("href","/post");
+            }
+          })
         </script>
         <script src="/login.js">
 

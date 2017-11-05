@@ -2,17 +2,23 @@ var rooms = [];
 var numberOfRooms;
 var currentPage = 2;
 var currentSortPage = 1;
+var currentSearchPage = 1;
 var isLoading = false;
 var loadDone = false;
 var isSort = false;
 var isAscend = false;
 var isDescend = false;
+var touristPlaces;
+var city;
+var sprice;
+var eprice;
 var query = window.location.search.substring(1);
 var re = query==='' ? '' : /w/gi;
 var newQuery = query.replace(re, ' ');
 
 var source = document.getElementById('entry-template').innerHTML;
 var template = Handlebars.compile(source);
+
 var getRoomsOnPage = (page, key) => {
   isSort = false;
   isLoading = true;
@@ -25,6 +31,29 @@ var getRoomsOnPage = (page, key) => {
     console.log(rooms);
     var test = template({obj: rooms});
     $('#main_info').append(test);
+  }).fail((err) => {
+    console.error(err);
+  }).always(() => {
+    isLoading = false;
+  });
+}
+
+var getSearchWithPrice = (page, city, touristPlaces, sprice, eprice) => {
+  isSort = false;
+  isLoading = true;
+  $.ajax({
+    type  : 'get',
+    url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + touristPlaces + "&sprice=" + sprice + "&eprice=" + eprice
+  }).then((data) => {
+    rooms = data.result;
+    if (rooms.length===0) loadDone = true;
+    console.log(rooms);
+    var test = template({obj: rooms});
+    if (currentSearchPage == 1) {
+      $('#main_info').html(test);
+    } else {
+      $('#main_info').append(test);
+    }
   }).fail((err) => {
     console.error(err);
   }).always(() => {
@@ -55,6 +84,14 @@ var getSortedRoom = (page, key, sort) => {
   });
 }
 
+$("#search-btn").click(function() {
+  touristPlaces = $("#search input[name=touristPlaces]").val() == '' ? 'undefined' : $("#search input[name=touristPlaces]").val();
+  city = $("#search input[name=city]").val();
+  sprice = $("#search input[name=sprice]").val() == '' ? undefined : $("#search input[name=sprice]").val();
+  eprice = $("#search input[name=eprice]").val() == '' ? undefined : $("#search input[name=eprice]").val();;
+  getSearchWithPrice(1,city,touristPlaces,sprice,eprice);
+})
+
 query === '' ? getRoomsOnPage(1,'undefined') : getRoomsOnPage(1,newQuery);
 
 $("#ascend").click(function(){
@@ -62,7 +99,7 @@ $("#ascend").click(function(){
   isDescend = false;
   loadDone = false;
   currentSortPage = 1;
-  getSortedRoom(1,'undefined',1);
+  query === '' ? getSortedRoom(1,touristPlaces,1) : getSortedRoom(1,newQuery,1);
 });
 
 $("#descend").click(function(){
@@ -70,7 +107,7 @@ $("#descend").click(function(){
   isAscend = false;
   loadDone = false;
   currentSortPage = 1;
-  getSortedRoom(1,'undefined',-1);
+  query === '' ? getSortedRoom(1,touristPlaces,-1) : getSortedRoom(1,newQuery,-1);
 });
 
 $(window).on('scroll', onWindowScrolled);

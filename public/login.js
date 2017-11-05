@@ -1,4 +1,11 @@
 var id;
+if (localStorage.username !== undefined) {
+  $(".login").css('display','none');
+  $(".login-box").css('display','none');
+  $(".login-name").css('display','inline-block');
+  $(".login-box2").css('display','inline-block');
+  $(".login-name").html('Chào mừng ' + localStorage.username + '!');
+}
 
 var sendUserData = () => {
   var username = $("#choice2 input[type=text]").val();
@@ -13,6 +20,7 @@ var sendUserData = () => {
        username:username,
        password:password
     }
+
   }).then((data) => {
     console.log(data);
     if (data.code !== 1) {
@@ -45,12 +53,15 @@ var signIn = () => {
       $(".login-name").css('display','inline-block');
       $(".login-box2").css('display','inline-block');
       $(".login-name").html('Chào mừng ' + data.user.username + '!');
-      $.ajaxSetup({
-        beforeSend: function (xhr)
-        {
-           xhr.setRequestHeader("Authorization",'access_token ' + data.access_token);
-        }
-      });
+      // $.ajaxSetup({
+      //   beforeSend: function (xhr)
+      //   {
+      //      xhr.setRequestHeader("Authorization",'access_token ' + data.access_token);
+      //   }
+      // });
+      localStorage.username = data.user.username;
+      localStorage.password = data.user.password;
+      localStorage.access_token = data.access_token;
       id = data.user._id;
     } else {
       alert(data.error);
@@ -61,28 +72,22 @@ var signIn = () => {
 }
 
 var signOut = () => {
-  var username = $("#choice1 input[type=text]").val();
-  var password = $("#choice1 input[type=password]").val();
-  console.log(username);
-  console.log(password);
   $.ajax({
     type  : 'GET',
-    url   : 'https://agile-everglades-67445.herokuapp.com/api/logout'
+    url   : 'https://agile-everglades-67445.herokuapp.com/api/logout',
+    headers: {'Authorization': 'access_token ' + localStorage.access_token}
   }).then((data) => {
     console.log(data);
-    if (data.code === 1) {
-      $(".login-box").css('display','inline-block');
-      $(".login-name").css('display','none');
-      $(".login-box2").css('display','none');
-      $.ajaxSetup({
-        beforeSend: function (xhr)
-        {
-           xhr.setRequestHeader("Authorization",'');
-        }
-      });
-    } else {
-      alert(data.error);
-    }
+    $(".login-box").css('display','inline-block');
+    $(".login-name").css('display','none');
+    $(".login-box2").css('display','none');
+    // $.ajaxSetup({
+    //   beforeSend: function (xhr)
+    //   {
+    //      xhr.setRequestHeader("Authorization",'');
+    //   }
+    // });
+    localStorage.clear();
   }).fail((err) => {
     console.error("hello",err);
   });
@@ -102,4 +107,4 @@ var getUserById = (id) => {
 
 $("#test").click(function() {
   getUserById('59fed63e0012e10012a3eb8d');
-})
+});
