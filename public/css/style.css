@@ -266,6 +266,9 @@ a.brand {
 /* ==========================================================
 ! Properties Container
 ========================================================== */
+.media-object{
+	height: auto;
+}
 .box-container {
 	background: #fff;
 	position: relative;
