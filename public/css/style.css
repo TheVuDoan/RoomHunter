@@ -891,6 +891,7 @@ h2.post-title {
 
 .login-box {
 	display: inline-block;
+	position: relative;
 	width: 100px;
 	margin-top: 10px;
 	margin-left: 660px;
@@ -900,6 +901,7 @@ h2.post-title {
 
 .login-box2 {
 	display: none;
+	position: relative;
 	width: 100px;
 	margin-top: 10px;
 	margin-left: 660px;
@@ -1032,6 +1034,50 @@ h2.post-title {
 /* ==========================================================
 ! Landscape phones and down
 ========================================================== */
+@media (max-width: 1024px) {
+	.login-box, .login-box2{
+		margin-left: 430px;
+	}
+	.login {
+		right: 43px;
+	}
+	.login-name {
+		margin-left: 140px;
+	}
+	.head-title {
+		top: 50px;
+	}
+	.head-message {
+		top: 50px;
+	}
+	.header-cta {
+		top: 50px;
+	}
+}
+
+@media (max-width: 800px) {
+	.login-name {
+		margin-left: 80px;
+	}
+	.login-box, .login-box2{
+		margin-left: 0px;
+	}
+	.input-box {
+		margin-right: 0px;
+		width: 250px;
+	}
+	.post-btn {
+		margin-left: 400px;
+	}
+	.login-triangle {
+		display: none;
+	}
+	.login {
+		right: 230px;
+		top: 300px;
+	}
+}
+
 @media (max-width: 480px) {
 	.agent-box .pull-left {
 		float: none;
