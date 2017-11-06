@@ -63,6 +63,7 @@ var signIn = () => {
       localStorage.password = data.user.password;
       localStorage.access_token = data.access_token;
       id = data.user._id;
+      alert("Đã đăng nhập thành công!");
     } else {
       alert(data.error);
     }
