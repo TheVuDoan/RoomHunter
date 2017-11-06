@@ -1,24 +1,31 @@
 function upFile(){
-  var form = $('form')[0]; // You need to use standard javascript object here
-  var formData = new FormData(form);
-$.ajax({
+  uploadSingle(0);
+}
+var images = [];
+function uploadSingle(i){
+  if(i === $('#file')[0].files.length){
+    console.log('done');
+    $(".post-btn").removeAttr("disabled");
+    return;
+  }
+  var formData = new FormData();
+  formData.append('file', $('#file')[0].files[i]);
+  $.ajax({
     url: 'https://agile-everglades-67445.herokuapp.com/api/files',
     data: formData,
     type: 'POST',
     contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
     processData: false, // NEEDED, DON'T OMIT THIS,
     headers: {'Authorization': 'access_token ' + localStorage.access_token}
-}).then((data) => {
-  console.log(data);
-  $('#images').val("https://agile-everglades-67445.herokuapp.com/" + data.result);
-  if (data.code == 1) {
-    $(".post-btn").removeAttr("disabled");
-  } else {
-    alert("Đã có lỗi upload ảnh. Xin hãy thử lại!");
-  }
-}).fail((err) => {
+  }).then((data) => {
+    console.log(data);
+    images.push("https://agile-everglades-67445.herokuapp.com/" + data.result);
+    uploadSingle(i+1);
+  }).fail((err) => {
   console.error(err);
-});
+  alert("Đã có lỗi upload ảnh. Xin hãy thử lại!");
+  return;
+  });
 }
 function post(){
   var room = {
@@ -31,7 +38,7 @@ function post(){
     area : $('#form-post input[name=area]').val(),
     price : $('#form-post input[name=price]').val(),
     description : $('#form-post input[name=description]').val(),
-    images : $('#form-post input[name=images]').val()
+    images : images
   }
   console.log(room);
   $.ajax({
