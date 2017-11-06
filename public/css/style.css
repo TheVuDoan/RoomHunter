@@ -166,6 +166,7 @@ a.brand {
 	font-size: 24px;
     font-weight: bold;
     color: #363636;
+	position: relative;
 }
 .tag-line {
 	margin: 0 0 0 20px;
@@ -1053,4 +1054,14 @@ h2.post-title {
 	}
 	.search-form {
 		margin-left: 0px;
+	}
+	.login-triangle {
+		display: none;
+	}
+	.login {
+		right: 34px;
+		top: 200px;
+	}
+	.brand {
+		top:-30px;
 	}
