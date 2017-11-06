@@ -28,7 +28,6 @@ var getRoomsOnPage = (page, key) => {
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
-    console.log(rooms);
     var test = template({obj: rooms});
     $('#main_info').append(test);
   }).fail((err) => {
@@ -47,7 +46,6 @@ var getSearchWithPrice = (page, city, touristPlaces, sprice, eprice) => {
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
-    console.log(rooms);
     var test = template({obj: rooms});
     if (currentSearchPage == 1) {
       $('#main_info').html(test);
@@ -70,7 +68,6 @@ var getSortedRoom = (page, key, sort) => {
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
-    console.log(rooms);
     var test = template({obj: rooms});
     if (currentSortPage == 1) {
       $('#main_info').html(test);
