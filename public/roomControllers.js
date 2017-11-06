@@ -14,7 +14,7 @@ var sprice;
 var eprice;
 var query = window.location.search.substring(1);
 var re = query==='' ? '' : /w/gi;
-var newQuery = query.replace(re, ' ');
+var newQuery = query == '' ? 'undefined' : query.replace(re, ' ');
 
 var source = document.getElementById('entry-template').innerHTML;
 var template = Handlebars.compile(source);
