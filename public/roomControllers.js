@@ -43,7 +43,7 @@ var getSearchWithPrice = (page, city, touristPlaces, sprice, eprice) => {
   isLoading = true;
   $.ajax({
     type  : 'get',
-    url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + touristPlaces + "&sprice=" + sprice + "&eprice=" + eprice
+    url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms' + "?page=" + page + "&key=" + touristPlaces + city + "&sprice=" + sprice + "&eprice=" + eprice
   }).then((data) => {
     rooms = data.result;
     if (rooms.length===0) loadDone = true;
@@ -99,7 +99,8 @@ $("#ascend").click(function(){
   isDescend = false;
   loadDone = false;
   currentSortPage = 1;
-  query === '' ? getSortedRoom(1,touristPlaces,1) : getSortedRoom(1,newQuery,1);
+  touristPlaces = $("#search input[name=touristPlaces]").val() == '' ? 'undefined' : $("#search input[name=touristPlaces]").val();
+  touristPlaces != 'undefined' ? getSortedRoom(1,touristPlaces,1) : getSortedRoom(1,newQuery,1);
 });
 
 $("#descend").click(function(){
@@ -107,7 +108,8 @@ $("#descend").click(function(){
   isAscend = false;
   loadDone = false;
   currentSortPage = 1;
-  query === '' ? getSortedRoom(1,touristPlaces,-1) : getSortedRoom(1,newQuery,-1);
+  touristPlaces = $("#search input[name=touristPlaces]").val() == '' ? 'undefined' : $("#search input[name=touristPlaces]").val();
+  touristPlaces != 'undefined' ? getSortedRoom(1,touristPlaces,-1) : getSortedRoom(1,newQuery,-1);
 });
 
 $(window).on('scroll', onWindowScrolled);

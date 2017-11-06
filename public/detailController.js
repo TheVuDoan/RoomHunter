@@ -48,11 +48,16 @@ var getRoomsOnPage = (page, key) => {
     console.log(rooms);
     if (rooms[0]._id === query) cur1 = 1;
     else cur1 = 0;
-    $("#firstLink").attr("href",`/rooms?${rooms[cur1]._id}`);
-    $("#firstImage").attr("src",rooms[cur1].images[0]);
-    $("#firstName").html(rooms[cur1].name);
-    $("#firstPrice").html(rooms[cur1].price+'VNĐ');
-    $("#firstTour").html(rooms[cur1].touristPlaces);
+    if (rooms[cur1] != null) {
+      $("#firstLink").attr("href",`/rooms?${rooms[cur1]._id}`);
+      $("#firstImage").attr("src",rooms[cur1].images[0]);
+      $("#firstName").html(rooms[cur1].name);
+      $("#firstPrice").html(rooms[cur1].price+'VNĐ');
+      $("#firstTour").html(rooms[cur1].touristPlaces);
+    }
+    else {
+      $("#first").css("display","none");
+    }
   }).fail((err) => {
     console.error(err);
   }).always(() => {
@@ -67,13 +72,23 @@ var getRoomsOnPage2 = (page, key) => {
   }).then((data) => {
     rooms = data.result;
     console.log(rooms);
-    if (rooms[2]._id === query) cur2 = 3;
-    else cur2 = 2;
-    $("#secondLink").attr("href",`/rooms?${rooms[cur2]._id}`);
-    $("#secondImage").attr("src",rooms[cur2].images[0]);
-    $("#secondName").html(rooms[cur2].name);
-    $("#secondPrice").html(rooms[cur2].price+'VNĐ');
-    $("#secondTour").html(rooms[cur2].touristPlaces);
+    if (rooms[2] != null) {
+      if (rooms[2]._id === query) cur2 = 3;
+      else cur2 = 2;
+      if (rooms[cur2] != null) {
+        $("#secondLink").attr("href",`/rooms?${rooms[cur2]._id}`);
+        $("#secondImage").attr("src",rooms[cur2].images[0]);
+        $("#secondName").html(rooms[cur2].name);
+        $("#secondPrice").html(rooms[cur2].price+'VNĐ');
+        $("#secondTour").html(rooms[cur2].touristPlaces);
+      }
+      else {
+        $("#second").css("display","none");
+      }
+    } else {
+      $("#second").css("display","none");
+    }
+
   }).fail((err) => {
     console.error(err);
   }).always(() => {

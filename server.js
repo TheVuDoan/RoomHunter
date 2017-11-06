@@ -12,6 +12,9 @@ app.get('/aboutus',(req, res) => {
 app.get('/post',(req, res) => {
   res.sendFile(__dirname + '/public/post.html');
 });
+app.get('/admin',(req, res) => {
+  res.sendFile(__dirname + '/public/admin.html');
+});
 app.use(express.static(__dirname + '/public'));
 
 const port = process.env.PORT || 1010;
