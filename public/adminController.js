@@ -1,4 +1,4 @@
-if (localStorage.username != 'admin') {
+if (localStorage.role != 'ADMIN') {
   $("body").css("display","none");
 } else {
   var query = window.location.search.substring(1);
@@ -27,10 +27,11 @@ if (localStorage.username != 'admin') {
 
   getApproval(1);
 
-  var aprrove = (id) => {
+  var Approve = (id) => {
+    console.log(id);
     $.ajax({
-      type  : 'post',
-      url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms?rld=' + id,
+      type  : 'PUT',
+      url   : 'https://agile-everglades-67445.herokuapp.com/api/rooms?rId=' + id,
       headers: {'Authorization': 'access_token ' + localStorage.access_token},
       data : {
         status : 1
@@ -43,8 +44,8 @@ if (localStorage.username != 'admin') {
     });
   }
 
-  if (query != '') {
-    aprrove(query);
-    console.log("HI");
-  }
+  // if (query != '') {
+  //   Approve(query);
+  //   console.log("HI");
+  // }
 }

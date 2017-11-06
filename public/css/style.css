@@ -269,7 +269,7 @@ a.brand {
 .box-container {
 	background: #fff;
 	position: relative;
-	height: 400px;
+	/*height: 400px;*/
 	margin-bottom: 30px;
 	border-bottom: 2px solid #EAEAEA;
 }

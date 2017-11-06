@@ -60,7 +60,7 @@ var signIn = () => {
       //   }
       // });
       localStorage.username = data.user.username;
-      localStorage.password = data.user.password;
+      localStorage.role = data.user.role;
       localStorage.access_token = data.access_token;
       id = data.user._id;
       alert("Đã đăng nhập thành công!");

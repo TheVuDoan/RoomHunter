@@ -167,9 +167,9 @@
                         <li class='info-label clearfix'><span class='pull-left'>Price: </span><span class='qty pull-right'>{{price}}</span></li>
                         <li class='info-label clearfix'><span class='pull-left'>Khu du lịch: </span><span class='qty pull-right'>{{touristPlaces}}</span></li>
                     </ul>
+                    <div class="btn btn-success" onclick="Approve('{{_id}}')">Duyệt</div>
                 </div>
             </div>
-            <a href="/admin?{{_id}}">Approve</a>
         </li>
       {{/each}}
     </script>
